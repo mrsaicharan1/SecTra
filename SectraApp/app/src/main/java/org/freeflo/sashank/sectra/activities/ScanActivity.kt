@@ -6,6 +6,9 @@ import android.os.Bundle
 import com.wonderkiln.camerakit.*
 import kotlinx.android.synthetic.main.activity_scan.*
 import android.graphics.Bitmap
+import android.support.v7.app.ActionBar
+import android.view.View
+import android.view.WindowManager
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -14,6 +17,7 @@ import org.json.JSONObject
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
+import kotlinx.android.synthetic.main.app_bar.*
 import org.freeflo.sashank.sectra.R
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -25,7 +29,13 @@ class ScanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan)
 
-        title = "Scan Your Baggage"
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setDisplayShowCustomEnabled(true)
+        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+        appBarTitle.text = "Scan Your Baggage"
+        menuIV.visibility = View.GONE
+
         cameraView.addCameraKitListener(object : CameraKitEventListener {
             override fun onVideo(p0: CameraKitVideo?) {}
 
