@@ -22,10 +22,14 @@ class HomeFragment : Fragment() {
         checkInfoBT.setOnClickListener {
             val pnr = pnrET.text
             val dialog = ProgressDialog.show(activity, "Fetching Details", "Loading...")
-            Han
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame, DetailsFragment())?.commit()
-            dialog.dismiss()
+            dialog.show()
+            Handler().postDelayed((
+                    Runnable {
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(R.id.frame, DetailsFragment())?.commit()
+                        dialog.dismiss()
+                    }), 2000)
+
         }
 
     }
