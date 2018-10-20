@@ -1,0 +1,31 @@
+<div id="searchDiv">
+    Search
+</div>
+
+<div class="row">
+    
+    <div class="col m3">
+        <div class="card">
+            <div class="card-image">
+                <img src="" height="200px" width="200px">
+            </div>
+            <div class="card-content">
+                <p class="title" style="font-family: Oswald; font-size: 20px;">{{ album.title }}</p>
+                <p class="artist">{{ album.artist }}</p>
+                <p class="genre">{{ album.genre }}</p>
+            </div>
+            <center>
+                <div class="svg-wrapper">
+                    <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="shape" height="40" width="150" />
+                        <div id="text">
+                            <a href="/album/{{album.id}}">
+                                <span class="spot"></span>VIEW ALBUM</a>
+                        </div>
+                    </svg>
+                </div>
+            </center>
+        </div>
+    </div>
+    
+</div>

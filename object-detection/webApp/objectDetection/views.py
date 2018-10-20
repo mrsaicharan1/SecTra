@@ -16,8 +16,9 @@ from .serializers import FileSerializer
 
 
 def index(request):
-	s.call('python3 ../../models-master/research/object_detection/object_detection_tutorial.py', shell=True)
+	#s.call('python3 ../../models-master/research/object_detection/object_detection_tutorial.py', shell=True)
 	return HttpResponse("OK")
+	#return render(request, 'index.html', {})
 
 
 class FileView(APIView):
