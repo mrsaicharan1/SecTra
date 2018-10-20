@@ -36,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/checkInfoBT"
-            android:text="Check Baggage"/>
+            android:text="View Flight Info"
+            android:background="@drawable/gradient_main"
+            android:textColor="@android:color/white"/>
 
 </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

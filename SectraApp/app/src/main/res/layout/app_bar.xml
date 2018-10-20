@@ -2,18 +2,28 @@
 <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="80dp"
+        android:paddingTop="24dp"
+    android:background="@drawable/gradient_main">
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_sort_black_24dp"
+            android:id="@+id/menuIV"
+            android:src="@drawable/ic_sort_white_24dp"
             android:padding="8dp"/>
 
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:paddingEnd="36dp"
-    android:textAlignment="center"
-    android:text="SecTra"/>
+            android:textSize="16sp"
+            android:id="@+id/appBarTitle"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:text="SecTra"/>
 
+    <!--<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_vert_white_24dp"
+            android:padding="12dp"/>-->
 </android.support.v7.widget.Toolbar>
