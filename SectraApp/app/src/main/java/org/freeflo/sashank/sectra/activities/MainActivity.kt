@@ -2,6 +2,7 @@ package org.freeflo.sashank.sectra.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.ActionBar
 import org.freeflo.sashank.sectra.R
 import org.freeflo.sashank.sectra.fragments.DetailsFragment
 import org.freeflo.sashank.sectra.fragments.HomeFragment
@@ -12,7 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        title = "Enter Details"
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setDisplayShowCustomEnabled(true)
+
         supportFragmentManager.beginTransaction()
             .add(R.id.frame, HomeFragment())
             .commit()
