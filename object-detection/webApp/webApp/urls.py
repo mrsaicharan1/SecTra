@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^file/', include('objectDetection.urls', 'objectDetection'), name='objectDetection'),
+    url(r'', include(('objectDetection.urls', 'objectDetection'), namespace='objectDetection')),
 ]
 
 if settings.DEBUG:

@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowCustomEnabled(true)
         window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-
         supportFragmentManager.beginTransaction()
             .add(R.id.frame, HomeFragment())
             .commit()
