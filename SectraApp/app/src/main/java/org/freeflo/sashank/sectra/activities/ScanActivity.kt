@@ -19,8 +19,19 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import kotlinx.android.synthetic.main.app_bar.*
 import org.freeflo.sashank.sectra.R
+import org.jetbrains.anko.image
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import android.R.attr.bitmap
+import android.R.attr.name
+import android.util.Log
+import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
+import org.freeflo.sashank.sectra.utils.RetrofitService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import java.io.OutputStream
 
 
 class ScanActivity : AppCompatActivity() {
@@ -72,9 +83,8 @@ class ScanActivity : AppCompatActivity() {
         val dialog = ProgressDialog.show(this, "Uploading", "Please Wait...")
         dialog.max = 100
         dialog.show()
-        AndroidNetworking.upload("http://172.31.1.5:8080")
-            .addMultipartFile("image", file)
-            .addMultipartParameter("key", "value")
+        AndroidNetworking.upload("https://sectra.herokuapp.com/upload/")
+            .addMultipartFile("file", file)
             .setTag("uploadTest")
             .setPriority(Priority.HIGH)
             .build()
@@ -89,28 +99,28 @@ class ScanActivity : AppCompatActivity() {
                 }
 
                 override fun onError(error: ANError) {
-                    toast("Error Occured")
+                    toast("Error Occured" + error.errorCode)
                     dialog.dismiss()
                 }
             })
-
-
     }
 
     private fun convertBitmapToFile(bitmap: Bitmap) : File {
-        val f = File(cacheDir,"image.png")
-        f.createNewFile()
+        val filesDir = filesDir
+        val imageFile = File(filesDir, name.toString() + ".jpg")
 
-        val bos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0 , bos)
-        val bitmapdata = bos.toByteArray()
+        val os: OutputStream
+        try {
+            os = FileOutputStream(imageFile)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+            os.flush()
+            os.close()
+        } catch (e: Exception) {
+            Log.e(javaClass.simpleName, "Error writing bitmap", e)
+        }
 
-        val fos = FileOutputStream(f)
-        fos.write(bitmapdata)
-        fos.flush()
-        fos.close()
+        return imageFile
 
-        return f
     }
 
     /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
