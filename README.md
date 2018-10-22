@@ -1,5 +1,5 @@
 # SECTRA
-Automation in Airport Secturity - Travel now made Hazzle-free!
+Automation in Airport Secturity - Travel now made Hassle-free!
 
 ## Presentation Link
 
