@@ -1,5 +1,5 @@
 # SECTRA
-Automation in Airport Secturity - Travel now made Hassle-free!
+Automation in Airport Secturity - Travel now made Hassle-free! (One of the top 5 projects at the hackathon, Prototype! https://prototypeiiita.github.io)
 
 ## Presentation Link
 
